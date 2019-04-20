@@ -3,6 +3,17 @@
   <groupId>com.kangmin</groupId>
   <artifactId>mysql-jdbc-example</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+  <dependencies>
+    <!-- MySQL jdbc connector -->
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.12</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -10,8 +21,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.6.1</version>
         <configuration>
-          <source/>
-          <target/>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
     </plugins>

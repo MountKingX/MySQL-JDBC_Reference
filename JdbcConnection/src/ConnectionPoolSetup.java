@@ -1,5 +1,3 @@
-package main;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -21,7 +19,7 @@ public class ConnectionPoolSetup {
     /**
      * method to get a mysql connection from connection pool
      * @return one Connection
-     * @throws Exception
+     * @throws Exception SQLException
      */
     private static synchronized Connection getConnection() throws Exception {
 	// re-use a previous released connection
