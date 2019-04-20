@@ -1,14 +1,15 @@
+package main;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class TestDBConnection {
+public class TestDBConnectionSimple {
 
     public static void main(String[] args) {
-
-	String DB_NAME = "testc";
-	String jdbcUrl = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
-	String USER_NAME = "";
-	String PASSWORD = "";
+	final String DB_NAME = "testc";
+	final String jdbcUrl = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
+	final String USER_NAME = "";
+	final String PASSWORD = "";
 	try {
 	    // Class.forName("com.mysql.jdbc.Driver");
 	    System.out.println("Try connecting to MysQL-DB at : " + jdbcUrl + "\n");
@@ -19,7 +20,5 @@ public class TestDBConnection {
 	} catch (Exception exc) {
 	    exc.printStackTrace();
 	}
-
     }
-
 }
