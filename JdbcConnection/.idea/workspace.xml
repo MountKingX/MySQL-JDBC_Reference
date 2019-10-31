@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e30b7110-c0ff-48e8-b58c-8a3f5ebe6f7a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ConnectionPoolSetup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CreationOfTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TestDBConnectionSimple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_46.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql-jdbc-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mysql-jdbc-example.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnectionPoolSetup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CreationOfTable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestDBConnectionSimple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ConnectionPoolSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/ConnectionPoolSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CreationOfTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/CreationOfTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TestDBConnectionSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/SimpleJDBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/model/User.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +58,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -83,8 +84,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="TestDBConnectionSimple" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.java.TestDBConnectionSimple" />
+    <configuration name="SimpleJDBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kangmin.jdbc.SimpleJDBConnection" />
       <module name="mysql-jdbc-example" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -92,7 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestDBConnectionSimple" />
+        <item itemvalue="Application.SimpleJDBConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +108,9 @@
       <option name="presentableId" value="Default" />
       <updated>1555735967693</updated>
       <workItem from="1555735977799" duration="1059000" />
-      <workItem from="1565667912274" duration="1142000" />
+      <workItem from="1565667912274" duration="1372000" />
+      <workItem from="1565752837941" duration="607000" />
+      <workItem from="1572490621091" duration="649000" />
     </task>
     <servers />
   </component>
@@ -119,10 +122,23 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/CreationOfTable.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

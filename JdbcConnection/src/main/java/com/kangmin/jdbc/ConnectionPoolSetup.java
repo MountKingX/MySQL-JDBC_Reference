@@ -1,4 +1,4 @@
-package main.java;
+package com.kangmin.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,18 +6,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectionPoolSetup {
+public final class ConnectionPoolSetup {
 
     // private static final String JDBC_DRIVER ="com.mysql.jdbc.Driver"; //deprecated
 	private static final String DB_NAME = "test";
-	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/"
-			+ DB_NAME + "?useSSL=false";
+	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
 
 
     // connection pool
-    private static List<Connection> connectionPool = new ArrayList<Connection>();
+    private static List<Connection> connectionPool = new ArrayList<>();
     // private static JSONParser parser = new JSONParser();
 
     /**
@@ -52,7 +51,7 @@ public class ConnectionPoolSetup {
         connectionPool.add(con);
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(final String[] args) throws SQLException {
         Connection con = null;
         try {
             con = getConnection();

@@ -1,4 +1,6 @@
-package main.java;
+package com.kangmin.jdbc;
+
+import com.kangmin.jdbc.model.User;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -11,13 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CreationOfTable {
+public final class CreationOfTable {
 
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
     private static final String DB_NAME = "test";
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/"
-            + DB_NAME + "?useSSL=false";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
     private static List<Connection> connectionPool = new ArrayList<>();
 
     private static synchronized Connection getConnection() throws Exception {
@@ -51,14 +52,15 @@ public class CreationOfTable {
             try {
                 if (con != null)
                     con.close();
-            } catch (SQLException e2) { /* ignore */
+            } catch (SQLException e2) {
+                /* ignore */
             }
             throw new SQLException(e);
         }
     }
 
     private void createUserTable() throws SQLException {
-        Connection con = null;
+        Connection con;
         String tableName = "user";
         try {
             con = getConnection();
@@ -106,7 +108,8 @@ public class CreationOfTable {
             try {
                 if (con != null)
                     con.close();
-            } catch (SQLException e2) { /* ignore */
+            } catch (SQLException e2) {
+                /* ignore */
             }
             throw new SQLException(e);
         }

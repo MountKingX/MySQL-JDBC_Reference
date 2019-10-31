@@ -1,6 +1,6 @@
-package main.java;
+package com.kangmin.jdbc.model;
 
-class User {
+public class User {
     private int uid;
     private String userName;  // unique email address
     private String password;
@@ -13,7 +13,7 @@ class User {
     public String getFirstName()       	{ return firstName; }
     public String getLastName()        	{ return lastName;  }
 
-    public void setUid(String s)       { password = s;  }
+    // public void setUid(String s)       { password = s;  }
     public void setPassword(String s)  { password = s;  }
     public void setUserName(String s)  { userName = s;  }
     public void setFirstName(String s) { firstName = s; }

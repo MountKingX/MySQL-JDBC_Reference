@@ -1,13 +1,12 @@
-package main.java;
+package com.kangmin.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class TestDBConnectionSimple {
+public final class SimpleJDBConnection {
 
 	private static final String DB_NAME = "test";
-	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/"
-			+ DB_NAME + "?useSSL=false";
+	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
 	private static final String USER_NAME = "";
 	private static final String PASSWORD = "";
 
