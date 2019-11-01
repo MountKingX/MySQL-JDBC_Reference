@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30b7110-c0ff-48e8-b58c-8a3f5ebe6f7a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ConnectionPoolSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/ConnectionPoolSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreationOfTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/CreationOfTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TestDBConnectionSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/SimpleJDBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kangmin/jdbc/model/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="e30b7110-c0ff-48e8-b58c-8a3f5ebe6f7a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CloudComputing/horizontalscaling" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -110,7 +100,7 @@
       <workItem from="1555735977799" duration="1059000" />
       <workItem from="1565667912274" duration="1372000" />
       <workItem from="1565752837941" duration="607000" />
-      <workItem from="1572490621091" duration="649000" />
+      <workItem from="1572490621091" duration="832000" />
     </task>
     <servers />
   </component>
