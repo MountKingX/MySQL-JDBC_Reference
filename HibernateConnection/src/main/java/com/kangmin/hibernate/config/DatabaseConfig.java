@@ -1,7 +1,5 @@
 package com.kangmin.hibernate.config;
 
-import com.kangmin.hibernate.dao.PersonDao;
-import com.kangmin.hibernate.dao.PersonDaoImpl;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -50,12 +48,6 @@ public class DatabaseConfig {
         return dataSource;
     }
 
-    private int getIntProperty(String propName) {
-        final String propVal = env.getProperty(propName);
-        assert propVal != null;
-        return Integer.parseInt(propVal);
-    }
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -80,13 +72,15 @@ public class DatabaseConfig {
     private Properties hibernateProperties() {
         final Properties p = new Properties();
         p.setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        p.getProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         p.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
         p.setProperty("hibernate.globally_quoted_identifiers", "true");
         return p;
     }
 
-    @Bean
-    public PersonDao personDao() {
-        return new PersonDaoImpl(sessionFactory().getObject());
+    private int getIntProperty(String propName) {
+        final String propVal = env.getProperty(propName);
+        assert propVal != null;
+        return Integer.parseInt(propVal);
     }
 }

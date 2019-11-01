@@ -1,8 +1,24 @@
 package com.kangmin.hibernate.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "person")
 public final class Person {
+
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "age")
     private int age;
+
+    public Person() {
+
+    }
 
     public Person(String name, int age) {
         this.name = name;

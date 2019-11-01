@@ -29,9 +29,8 @@ public class PersonDaoImpl implements PersonDao {
     @Transactional
     public List<Person> getPersons() {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("FROM person");
-        List<Person> result = query.getResultList();
-        session.close();
+        Query query = session.createQuery("FROM Person");
+        List<Person> result = (List<Person>) query.getResultList();
         return result;
     }
 }
