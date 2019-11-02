@@ -1,5 +1,9 @@
 # MySQL JDBC command Reference
 Primarily for my own reference
 
-created on Oct-2018
-updated on Apr-2019
+* Manual JDBC Connection - JdbcConnection
+* Using Hibernate ORM - HibernateConnection
+* Database Migration with Flyway - FlywayMigration
+
+---
+last updated on Nov-2019
