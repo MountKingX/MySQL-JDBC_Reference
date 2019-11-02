@@ -18,7 +18,7 @@ public class AppConfig {
 		final Flyway flyway = Flyway.configure()
 				.baselineOnMigrate(true)
 				.dataSource(dataSource)
-				.locations("filesystem:src/main/resources/db/migration")
+				.locations("filesystem:src/main/resources/db/migration/")
 				.encoding("UTF-8")
 				.load();
 		flyway.clean();
