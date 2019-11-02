@@ -41,7 +41,7 @@ public final class CreationOfTable {
         final String tableName = "user";
         try {
             con = getConnection();
-            DatabaseMetaData metaData = con.getMetaData();
+            final DatabaseMetaData metaData = con.getMetaData();
             ResultSet rs = metaData.getTables(null, null, tableName, null);
             boolean answer = rs.next();
             rs.close();
@@ -64,7 +64,7 @@ public final class CreationOfTable {
         String tableName = "user";
         try {
             con = getConnection();
-            Statement stmt = con.createStatement();
+            final Statement stmt = con.createStatement();
             stmt.executeUpdate("CREATE TABLE " + tableName
                     + " (id int not null auto_increment, "
                     + "userName VARCHAR(255), "
@@ -80,9 +80,9 @@ public final class CreationOfTable {
     }
 
 
-    public User read(String userName) throws SQLException {
+    public User read(final String userName) throws SQLException {
         Connection con = null;
-        String tableName = "user";
+        final String tableName = "user";
         try {
             con = getConnection();
             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM "
@@ -90,7 +90,7 @@ public final class CreationOfTable {
             pstmt.setString(1, userName);
             ResultSet rs = pstmt.executeQuery();
 
-            User user;
+            final User user;
             if (!rs.next()) {
                 user = null;
             } else {
@@ -104,11 +104,11 @@ public final class CreationOfTable {
             pstmt.close();
             releaseConnection(con);
             return user;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             try {
                 if (con != null)
                     con.close();
-            } catch (SQLException e2) {
+            } catch (final SQLException e2) {
                 /* ignore */
             }
             throw new SQLException(e);

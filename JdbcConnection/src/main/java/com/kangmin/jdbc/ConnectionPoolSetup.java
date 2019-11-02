@@ -9,8 +9,8 @@ import java.util.List;
 public final class ConnectionPoolSetup {
 
     // private static final String JDBC_DRIVER ="com.mysql.jdbc.Driver"; //deprecated
-	private static final String DB_NAME = "test";
-	private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
+    private static final String DB_NAME = "test";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/" + DB_NAME + "?useSSL=false";
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
 
@@ -65,7 +65,7 @@ public final class ConnectionPoolSetup {
             // delete
             // statement vs prepared-statement
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
             // System.out.println("exception got");
             e.printStackTrace();
         } finally {
