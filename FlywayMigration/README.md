@@ -1,4 +1,4 @@
-# Flyway Migration
+# Flyway Migration (Spring Style)
 
 * Configuration of Database
 * Add flyway bean

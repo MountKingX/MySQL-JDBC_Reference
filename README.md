@@ -1,9 +1,14 @@
-# MySQL JDBC command Reference
-Primarily for my own reference
+# MySQL Database connection and configuration Reference
+Primarily for my own reference, to help Spring projects
 
-* Manual JDBC Connection - JdbcConnection
-* Using Hibernate ORM - HibernateConnection
+So far, my hoices are:
+* Raw JDBC Connection - JdbcConnection
+* Hibernate ORM - HibernateConnection
 * Database Migration with Flyway - FlywayMigration
+* JOOQ - Java Object Oriented Querying as DSL - JooqConnection
+
+
+DSL: domain-specific language
 
 ---
 last updated on Nov-2019
