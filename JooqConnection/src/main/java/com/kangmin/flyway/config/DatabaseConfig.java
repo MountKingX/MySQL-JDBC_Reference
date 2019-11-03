@@ -9,6 +9,7 @@ import org.jooq.impl.DefaultDSLContext;
 import org.jooq.impl.DefaultExecuteListenerProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan({"com.kangmin.flyway"})
 @PropertySource("classpath:persistence-mysql.properties")
 @EnableTransactionManagement
 public class DatabaseConfig {
@@ -26,7 +28,7 @@ public class DatabaseConfig {
     private final Environment env;
 
     @Autowired
-    public DatabaseConfig(Environment env) {
+    public DatabaseConfig(final Environment env) {
         this.env = env;
     }
 
@@ -45,22 +47,19 @@ public class DatabaseConfig {
         return new HikariDataSource(config);
     }
 
-    private int getIntProperty(String propName) {
-        final String propVal = env.getProperty(propName);
-        assert propVal != null;
-        return Integer.parseInt(propVal);
+    @Bean
+    public DefaultDSLContext dsl() {
+        return new DefaultDSLContext(configuration());
     }
 
     @Bean
     public DefaultConfiguration configuration() {
-        DefaultConfiguration jooqConfiguration = new DefaultConfiguration();
+        final DefaultConfiguration jooqConfiguration = new DefaultConfiguration();
         jooqConfiguration.set(connectionProvider());
         jooqConfiguration.set(new DefaultExecuteListenerProvider(exceptionTransformer()));
-
-        String sqlDialectName = env.getRequiredProperty("jooq.sql.dialect");
-        SQLDialect dialect = SQLDialect.valueOf(sqlDialectName);
+        final String sqlDialectName = env.getRequiredProperty("jooq.sql.dialect");
+        final SQLDialect dialect = SQLDialect.valueOf(sqlDialectName);
         jooqConfiguration.set(dialect);
-
         return jooqConfiguration;
     }
 
@@ -84,8 +83,9 @@ public class DatabaseConfig {
         return new ExceptionTranslator();
     }
 
-    @Bean
-    public DefaultDSLContext dsl() {
-        return new DefaultDSLContext(configuration());
+    private int getIntProperty(String propName) {
+        final String propVal = env.getProperty(propName);
+        assert propVal != null;
+        return Integer.parseInt(propVal);
     }
 }
