@@ -4,6 +4,9 @@
 package com.kangmin.jooq.db.generated;
 
 
+import com.kangmin.jooq.db.generated.tables.Author;
+import com.kangmin.jooq.db.generated.tables.AuthorBook;
+import com.kangmin.jooq.db.generated.tables.Book;
 import com.kangmin.jooq.db.generated.tables.Department;
 import com.kangmin.jooq.db.generated.tables.Employee;
 import com.kangmin.jooq.db.generated.tables.FlywaySchemaHistory;
@@ -32,12 +35,27 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Testdbtest extends SchemaImpl {
 
-    private static final long serialVersionUID = -67952302;
+    private static final long serialVersionUID = -646378421;
 
     /**
      * The reference instance of <code>testdbtest</code>
      */
     public static final Testdbtest TESTDBTEST = new Testdbtest();
+
+    /**
+     * The table <code>testdbtest.author</code>.
+     */
+    public final Author AUTHOR = com.kangmin.jooq.db.generated.tables.Author.AUTHOR;
+
+    /**
+     * The table <code>testdbtest.author_book</code>.
+     */
+    public final AuthorBook AUTHOR_BOOK = com.kangmin.jooq.db.generated.tables.AuthorBook.AUTHOR_BOOK;
+
+    /**
+     * The table <code>testdbtest.book</code>.
+     */
+    public final Book BOOK = com.kangmin.jooq.db.generated.tables.Book.BOOK;
 
     /**
      * The table <code>testdbtest.department</code>.
@@ -79,6 +97,9 @@ public class Testdbtest extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            Author.AUTHOR,
+            AuthorBook.AUTHOR_BOOK,
+            Book.BOOK,
             Department.DEPARTMENT,
             Employee.EMPLOYEE,
             FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY);

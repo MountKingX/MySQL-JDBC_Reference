@@ -4,6 +4,9 @@
 package com.kangmin.jooq.db.generated;
 
 
+import com.kangmin.jooq.db.generated.tables.Author;
+import com.kangmin.jooq.db.generated.tables.AuthorBook;
+import com.kangmin.jooq.db.generated.tables.Book;
 import com.kangmin.jooq.db.generated.tables.Department;
 import com.kangmin.jooq.db.generated.tables.Employee;
 import com.kangmin.jooq.db.generated.tables.FlywaySchemaHistory;
@@ -23,6 +26,21 @@ import javax.annotation.Generated;
 )
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>testdbtest.author</code>.
+     */
+    public static final Author AUTHOR = com.kangmin.jooq.db.generated.tables.Author.AUTHOR;
+
+    /**
+     * The table <code>testdbtest.author_book</code>.
+     */
+    public static final AuthorBook AUTHOR_BOOK = com.kangmin.jooq.db.generated.tables.AuthorBook.AUTHOR_BOOK;
+
+    /**
+     * The table <code>testdbtest.book</code>.
+     */
+    public static final Book BOOK = com.kangmin.jooq.db.generated.tables.Book.BOOK;
 
     /**
      * The table <code>testdbtest.department</code>.

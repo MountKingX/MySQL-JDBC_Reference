@@ -4,6 +4,9 @@
 package com.kangmin.jooq.db.generated;
 
 
+import com.kangmin.jooq.db.generated.tables.Author;
+import com.kangmin.jooq.db.generated.tables.AuthorBook;
+import com.kangmin.jooq.db.generated.tables.Book;
 import com.kangmin.jooq.db.generated.tables.Department;
 import com.kangmin.jooq.db.generated.tables.Employee;
 import com.kangmin.jooq.db.generated.tables.FlywaySchemaHistory;
@@ -32,6 +35,10 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index AUTHOR_PRIMARY = Indexes0.AUTHOR_PRIMARY;
+    public static final Index AUTHOR_BOOK_FK_AB_BOOK = Indexes0.AUTHOR_BOOK_FK_AB_BOOK;
+    public static final Index AUTHOR_BOOK_PRIMARY = Indexes0.AUTHOR_BOOK_PRIMARY;
+    public static final Index BOOK_PRIMARY = Indexes0.BOOK_PRIMARY;
     public static final Index DEPARTMENT_PRIMARY = Indexes0.DEPARTMENT_PRIMARY;
     public static final Index EMPLOYEE_PRIMARY = Indexes0.EMPLOYEE_PRIMARY;
     public static final Index FLYWAY_SCHEMA_HISTORY_FLYWAY_SCHEMA_HISTORY_S_IDX = Indexes0.FLYWAY_SCHEMA_HISTORY_FLYWAY_SCHEMA_HISTORY_S_IDX;
@@ -42,6 +49,10 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index AUTHOR_PRIMARY = Internal.createIndex("PRIMARY", Author.AUTHOR, new OrderField[] { Author.AUTHOR.ID }, true);
+        public static Index AUTHOR_BOOK_FK_AB_BOOK = Internal.createIndex("fk_ab_book", AuthorBook.AUTHOR_BOOK, new OrderField[] { AuthorBook.AUTHOR_BOOK.BOOK_ID }, false);
+        public static Index AUTHOR_BOOK_PRIMARY = Internal.createIndex("PRIMARY", AuthorBook.AUTHOR_BOOK, new OrderField[] { AuthorBook.AUTHOR_BOOK.AUTHOR_ID, AuthorBook.AUTHOR_BOOK.BOOK_ID }, true);
+        public static Index BOOK_PRIMARY = Internal.createIndex("PRIMARY", Book.BOOK, new OrderField[] { Book.BOOK.ID }, true);
         public static Index DEPARTMENT_PRIMARY = Internal.createIndex("PRIMARY", Department.DEPARTMENT, new OrderField[] { Department.DEPARTMENT.ID }, true);
         public static Index EMPLOYEE_PRIMARY = Internal.createIndex("PRIMARY", Employee.EMPLOYEE, new OrderField[] { Employee.EMPLOYEE.ID }, true);
         public static Index FLYWAY_SCHEMA_HISTORY_FLYWAY_SCHEMA_HISTORY_S_IDX = Internal.createIndex("flyway_schema_history_s_idx", FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY, new OrderField[] { FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY.SUCCESS }, false);

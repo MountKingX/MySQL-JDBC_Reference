@@ -1,4 +1,4 @@
-package com.kangmin.flyway.config;
+package com.kangmin.flyway.config.database;
 
 import org.jooq.ExecuteContext;
 import org.jooq.SQLDialect;
