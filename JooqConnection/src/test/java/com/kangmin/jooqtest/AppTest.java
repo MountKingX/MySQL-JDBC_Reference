@@ -1,4 +1,4 @@
-package com.kangmin.flyway;
+package com.kangmin.jooqtest;
 
 import static org.junit.Assert.assertTrue;
 

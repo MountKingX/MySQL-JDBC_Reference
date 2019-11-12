@@ -1,6 +1,6 @@
-package com.kangmin.flyway;
+package com.kangmin.jooqtest;
 
-import com.kangmin.flyway.config.database.TestDSLContextConfig;
+import com.kangmin.jooqtest.config.database.TestDSLContextConfig;
 import org.jooq.DSLContext;
 import org.jooq.Record3;
 import org.jooq.Result;

@@ -1,8 +1,8 @@
-package com.kangmin.flyway;
+package com.kangmin.jooqtest;
 
 
-import com.kangmin.flyway.config.AppConfig;
-import com.kangmin.flyway.model.Person;
+import com.kangmin.jooqtest.config.AppConfig;
+import com.kangmin.jooqtest.model.Person;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 

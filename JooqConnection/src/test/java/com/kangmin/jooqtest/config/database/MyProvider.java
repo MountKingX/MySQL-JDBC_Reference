@@ -1,4 +1,4 @@
-package com.kangmin.flyway.config.database;
+package com.kangmin.jooqtest.config.database;
 
 import org.jooq.DSLContext;
 import org.jooq.Record2;

@@ -1,4 +1,4 @@
-package com.kangmin.flyway.model;
+package com.kangmin.jooqtest.model;
 
 import javax.persistence.*;
 

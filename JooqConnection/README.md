@@ -2,7 +2,8 @@
 
 * Configuration of Jooq
 * Add flyway bean
-
+* Connection Pool set as HikariCP - most advanced one
+* Use properties-maven-plugin to pass some params to pom.xml, need to have mvn properties:read.. first if want to have particular phase
 
 Still have things to do if add <inputCatalog>:
 <inputCatalog>${test.db.schema}</inputCatalog>
@@ -20,7 +21,7 @@ Flyway is looking for .sql files under directory `db/migration` by default
 
 
 ---
-last updated on Mov-2019
+last updated on Nov-2019
 
 Reference:
 

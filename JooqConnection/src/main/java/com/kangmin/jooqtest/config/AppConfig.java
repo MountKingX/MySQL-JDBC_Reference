@@ -1,8 +1,8 @@
-package com.kangmin.flyway.config;
+package com.kangmin.jooqtest.config;
 
 
-import com.kangmin.flyway.config.database.DSLContextConfig;
-import com.kangmin.flyway.model.Person;
+import com.kangmin.jooqtest.config.database.DSLContextConfig;
+import com.kangmin.jooqtest.model.Person;
 import org.flywaydb.core.Flyway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.kangmin.flyway.config.database;
+package com.kangmin.jooqtest.config.database;
 
 import org.jooq.SQLDialect;
 import org.jooq.impl.DataSourceConnectionProvider;
@@ -22,7 +22,7 @@ import javax.sql.DataSource;
         TestDataSourceConfig.class
 })
 @Configuration
-@ComponentScan({"com.kangmin.flyway"})
+@ComponentScan({"com.kangmin.jooqtest"})
 @EnableTransactionManagement
 public class TestDSLContextConfig {
 
