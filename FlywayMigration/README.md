@@ -3,6 +3,7 @@
 * Configuration of Database
 * Add flyway bean
 
+run App.main to init flyway's migrate in App.config
 
 [Warning] Unable to resolve location classpath:db/migration 
 
@@ -12,4 +13,5 @@ Flyway is looking for .sql files under directory `db/migration` by default
 
 
 ---
-last updated on Mov-2019
+
+last updated on Nov-2019

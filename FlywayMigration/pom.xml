@@ -55,17 +55,19 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- MySQL and C3P0 support -->
+        <!-- MySQL and BoneCP support -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.45</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.jolbox/bonecp -->
         <dependency>
-            <groupId>com.mchange</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.5.3</version>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.8.0.RELEASE</version>
         </dependency>
+
 
         <!-- Hibernate support -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->

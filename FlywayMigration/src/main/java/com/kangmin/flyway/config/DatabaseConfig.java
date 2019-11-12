@@ -1,6 +1,6 @@
 package com.kangmin.flyway.config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.jolbox.bonecp.BoneCPDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
 import java.util.Properties;
 
 @Configuration
@@ -30,21 +29,22 @@ public class DatabaseConfig {
 
     @Bean
     public DataSource constructDataSource() {
-        ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        try {
-            dataSource.setDriverClass(env.getProperty("jdbc.driver"));
-        } catch (PropertyVetoException exc) {
-            throw new RuntimeException(exc);
-        }
+        // https://github.com/wwadge/bonecp
+        BoneCPDataSource dataSource = new BoneCPDataSource();
+        dataSource.setDriverClass(env.getProperty("jdbc.driver"));
         dataSource.setJdbcUrl(env.getProperty("jdbc.url"));
         dataSource.setUser(env.getProperty("jdbc.user"));
         dataSource.setPassword(env.getProperty("jdbc.password"));
 
-        dataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
-        dataSource.setMinPoolSize(getIntProperty("connection.pool.minPoolSize"));
-        dataSource.setMaxPoolSize(getIntProperty("connection.pool.maxPoolSize"));
-        dataSource.setMaxIdleTime(getIntProperty("connection.pool.maxIdleTime"));
-
+        dataSource.setAcquireIncrement(1);
+        dataSource.setAcquireRetryAttempts(2);
+        dataSource.setAcquireRetryDelayInMs(2000);
+        dataSource.setIdleConnectionTestPeriodInMinutes(1);
+        dataSource.setIdleMaxAgeInMinutes(10);
+        dataSource.setMaxConnectionsPerPartition(2);
+        dataSource.setMinConnectionsPerPartition(1);
+        dataSource.setPartitionCount(1);
+        dataSource.setStatementsCacheSize(100);
         return dataSource;
     }
 

@@ -21,3 +21,13 @@ Flyway is looking for .sql files under directory `db/migration` by default
 
 ---
 last updated on Mov-2019
+
+Reference:
+
+- https://www.jianshu.com/p/46164f9ba53c
+- https://www.jianshu.com/p/d471b9a6fbda
+- https://amao12580.github.io/post/2016/04/JOOQ-from-entry-to-improve/
+- https://github.com/eugenp/tutorials/blob/master/spring-jooq/src/test/java/com/baeldung/jooq/introduction/PersistenceContextIntegrationTest.java
+- https://github.com/amao12580/JOOQ
+- https://github.com/amao12580/JOOQ-With-Spring/tree/master/src/test/java/org/jooq/example
+- https://www.petrikainulainen.net/programming/jooq/using-jooq-with-spring-configuration/
