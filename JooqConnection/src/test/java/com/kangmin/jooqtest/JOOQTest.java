@@ -23,7 +23,7 @@ import static com.kangmin.jooq.db.generated.Tables.BOOK;
 import static org.junit.Assert.assertEquals;
 
 @ContextConfiguration(classes = JOOQTest.class)
-@Transactional(transactionManager = "transactionManager")
+@Transactional(transactionManager = "testTransactionManager")
 @RunWith(SpringJUnit4ClassRunner.class)
 @Import({TestDSLContextConfig.class})
 public class JOOQTest {
@@ -36,28 +36,28 @@ public class JOOQTest {
 
     @Autowired
     @Qualifier("testDSLContext")
-    private DSLContext dsl;
+    private DSLContext testDSLContext;
 
     @Test
     public void givenValidData_whenInserting_thenSucceed() {
         LOG.info("Starting JOOQTest - givenValidData_whenInserting_thenSucceed for table {}", AUTHOR.getSchema());
-        dsl.insertInto(AUTHOR)
+        testDSLContext.insertInto(AUTHOR)
                 .set(AUTHOR.ID, 4)
                 .set(AUTHOR.FIRST_NAME, "Herbert")
                 .set(AUTHOR.LAST_NAME, "Schildt")
                 .execute();
 
-        dsl.insertInto(BOOK)
+        testDSLContext.insertInto(BOOK)
                 .set(BOOK.ID, 4)
                 .set(BOOK.TITLE, "A Beginner's Guide")
                 .execute();
 
-        dsl.insertInto(AUTHOR_BOOK)
+        testDSLContext.insertInto(AUTHOR_BOOK)
                 .set(AUTHOR_BOOK.AUTHOR_ID, 4)
                 .set(AUTHOR_BOOK.BOOK_ID, 4)
                 .execute();
 
-        final Result<Record3<Integer, String, Integer>> result = dsl.select(AUTHOR.ID, AUTHOR.LAST_NAME, DSL.count())
+        final Result<Record3<Integer, String, Integer>> result = testDSLContext.select(AUTHOR.ID, AUTHOR.LAST_NAME, DSL.count())
                 .from(AUTHOR)
                 .join(AUTHOR_BOOK).on(AUTHOR.ID.equal(AUTHOR_BOOK.AUTHOR_ID))
                 .join(BOOK).on(AUTHOR_BOOK.BOOK_ID.equal(BOOK.ID))
@@ -74,26 +74,26 @@ public class JOOQTest {
 
     @Test(expected = DataAccessException.class)
     public void givenInvalidData_whenInserting_thenFail() {
-        dsl.insertInto(AUTHOR_BOOK).set(AUTHOR_BOOK.AUTHOR_ID, 4).set(AUTHOR_BOOK.BOOK_ID, 5).execute();
+        testDSLContext.insertInto(AUTHOR_BOOK).set(AUTHOR_BOOK.AUTHOR_ID, 4).set(AUTHOR_BOOK.BOOK_ID, 5).execute();
     }
 
     @Test
     public void givenValidData_whenUpdating_thenSucceed() {
-        dsl.update(AUTHOR)
+        testDSLContext.update(AUTHOR)
                 .set(AUTHOR.LAST_NAME, "Baeldung")
                 .where(AUTHOR.ID.equal(3))
                 .execute();
 
-        dsl.update(BOOK)
+        testDSLContext.update(BOOK)
                 .set(BOOK.TITLE, "Building your REST API with Spring")
                 .where(BOOK.ID.equal(3)).execute();
 
-        dsl.insertInto(AUTHOR_BOOK)
+        testDSLContext.insertInto(AUTHOR_BOOK)
                 .set(AUTHOR_BOOK.AUTHOR_ID, 3)
                 .set(AUTHOR_BOOK.BOOK_ID, 3)
                 .execute();
 
-        final Result<Record3<Integer, String, String>> result = dsl.select(AUTHOR.ID, AUTHOR.LAST_NAME, BOOK.TITLE)
+        final Result<Record3<Integer, String, String>> result = testDSLContext.select(AUTHOR.ID, AUTHOR.LAST_NAME, BOOK.TITLE)
                 .from(AUTHOR)
                 .join(AUTHOR_BOOK).on(AUTHOR.ID.equal(AUTHOR_BOOK.AUTHOR_ID))
                 .join(BOOK).on(AUTHOR_BOOK.BOOK_ID.equal(BOOK.ID))
@@ -108,7 +108,7 @@ public class JOOQTest {
 
     @Test(expected = DataAccessException.class)
     public void givenInvalidData_whenUpdating_thenFail() {
-        dsl.update(AUTHOR_BOOK)
+        testDSLContext.update(AUTHOR_BOOK)
                 .set(AUTHOR_BOOK.AUTHOR_ID, 4)
                 .set(AUTHOR_BOOK.BOOK_ID, 5)
                 .execute();
@@ -116,11 +116,11 @@ public class JOOQTest {
 
     @Test
     public void givenValidData_whenDeleting_thenSucceed() {
-        dsl.delete(AUTHOR)
+        testDSLContext.delete(AUTHOR)
                 .where(AUTHOR.ID.lt(3))
                 .execute();
 
-        final Result<Record3<Integer, String, String>> result = dsl.select(AUTHOR.ID, AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME)
+        final Result<Record3<Integer, String, String>> result = testDSLContext.select(AUTHOR.ID, AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME)
                 .from(AUTHOR)
                 .fetch();
 
@@ -131,7 +131,7 @@ public class JOOQTest {
 
     @Test(expected = DataAccessException.class)
     public void givenInvalidData_whenDeleting_thenFail() {
-        dsl.delete(BOOK)
+        testDSLContext.delete(BOOK)
                 .where(BOOK.ID.equal(1))
                 .execute();
     }

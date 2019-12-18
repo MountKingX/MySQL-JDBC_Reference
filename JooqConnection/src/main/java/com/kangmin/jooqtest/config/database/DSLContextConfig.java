@@ -73,8 +73,4 @@ public class DSLContextConfig {
     public DataSourceTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource);
     }
-
-
-
-
 }
