@@ -14,17 +14,9 @@ public final class ConnectionPoolSetup {
     private static final String USERNAME = "";
     private static final String PASSWORD = "";
 
-
     // connection pool
-    private static List<Connection> connectionPool = new ArrayList<>();
-    // private static JSONParser parser = new JSONParser();
+    private static final List<Connection> connectionPool = new ArrayList<>();
 
-    /**
-     * method to get a mysql connection from connection pool
-     *
-     * @return one Connection
-     * @throws Exception SQLException
-     */
     private static synchronized Connection getConnection() throws Exception {
         // re-use a previous released connection
         if (connectionPool.size() > 0) {
@@ -39,7 +31,8 @@ public final class ConnectionPoolSetup {
          */
 
         // get Connection
-        try { // System.out.println("GET CONNECTION");
+        try {
+            System.out.println("GET CONNECTION");
             return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
         } catch (SQLException e) {
             throw new Exception(e);

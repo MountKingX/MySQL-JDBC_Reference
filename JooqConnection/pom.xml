@@ -17,9 +17,11 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <springframework.version>5.1.6.RELEASE</springframework.version>
         <flyway.version>6.0.7</flyway.version>
+        <jooq.version>3.13.2</jooq.version>
         <logback.version>1.2.3</logback.version>
         <lombok.version>1.18.8</lombok.version>
         <joda.time.version>2.10.5</joda.time.version>
+        <test.db.schema>testdbtest</test.db.schema>
     </properties>
 
     <dependencies>
@@ -74,19 +76,19 @@
         <!-- Jooq support -->
         <dependency>
             <groupId>org.jooq</groupId>
-            <artifactId>jooq-codegen</artifactId>
-            <version>3.11.10</version>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.jooq</groupId>-->
-<!--            <artifactId>jooq</artifactId>-->
-<!--            <version>3.11.10</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.jooq</groupId>-->
-<!--            <artifactId>jooq-meta</artifactId>-->
-<!--            <version>3.11.10</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
 
         <!-- Hikari CP -->
         <dependency>
@@ -164,9 +166,9 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <url>${test.db.url}</url>
-                    <user>${test.db.username}</user>
-                    <password>${test.db.password}</password>
+                    <url>jdbc:mysql://localhost:3306/testdbtest?useSSL=false&amp;serverTimezone=UTC</url>
+                    <user>root</user>
+                    <password> </password>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <schemas>
                         <schema>${test.db.schema}</schema>
@@ -179,55 +181,65 @@
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
-                <version>3.11.10</version>
+                <version>${jooq.version}</version>
                 <executions>
                     <execution>
-                        <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <configuration>
-                            <jdbc>
-                                <driver>${test.db.driver}</driver>
-                                <url>${test.db.url}</url>
-                                <user>${test.db.username}</user>
-                                <password>${test.db.password}</password>
-                            </jdbc>
-                            <generator>
-                                <database>
-                                    <name>org.jooq.meta.mysql.MySQLDatabase</name>
-                                    <includes>.*</includes>
-                                    <excludes />
-                                    <inputSchema>${test.db.schema}</inputSchema>
-                                    <forcedTypes>
-                                        <forcedType>
-                                            <name>BOOLEAN</name>
-                                            <expression>.*\.HANDMADE</expression>
-                                            <types>(?i:TINYINT(\s*\(\d+\))?(\s*UNSIGNED)?)</types>
-                                        </forcedType>
-                                    </forcedTypes>
-                                </database>
-                                <generate>
-                                    <deprecated>false</deprecated>
-                                </generate>
-                                <target>
-                                    <packageName>com.kangmin.jooq.db.generated</packageName>
-                                    <directory>src/main/java</directory>
-                                </target>
-                                <generate>
-                                    <pojos>false</pojos>
-                                    <daos>false</daos>
-                                </generate>
-                            </generator>
-                        </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.20</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <jdbc>
+                        <driver>com.mysql.cj.jdbc.Driver</driver>
+                        <url>jdbc:mysql://localhost:3306/testdbtest?useSSL=false&amp;serverTimezone=UTC</url>
+                        <user> </user>
+                        <password> </password>
+                    </jdbc>
+                    <generator>
+                        <name>org.jooq.codegen.JavaGenerator</name>
+                        <database>
+                            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+                            <inputSchema>${test.db.schema}</inputSchema>
+                            <includes>.*</includes>
+                            <excludes> </excludes>
+                            <!-- In case your database supports catalogs, e.g. SQL Server:
+                                <inputCatalog>public</inputCatalog>
+                                  -->
+<!--                            <forcedTypes>-->
+<!--                                <forcedType>-->
+<!--                                    <name>BOOLEAN</name>-->
+<!--                                    <expression>.*\.HANDMADE</expression>-->
+<!--                                    <types>(?i:TINYINT(\s*\(\d+\))?(\s*UNSIGNED)?)</types>-->
+<!--                                </forcedType>-->
+<!--                            </forcedTypes>-->
+                        </database>
+                        <generate>
+                            <deprecated>false</deprecated>
+                        </generate>
+                        <target>
+                            <packageName>com.kangmin.jooq.db.generated</packageName>
+                            <directory>target/generated-sources/jooq</directory>
+                        </target>
+                        <generate>
+                            <pojos>false</pojos>
+                            <daos>false</daos>
+                        </generate>
+                    </generator>
+                </configuration>
             </plugin>
             <!-- Java compiler support -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <target>1.8</target>
                     <source>1.8</source>

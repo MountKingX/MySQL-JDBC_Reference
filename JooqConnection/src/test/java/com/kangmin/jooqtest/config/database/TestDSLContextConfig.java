@@ -40,12 +40,9 @@ public class TestDSLContextConfig {
         config.setJdbcUrl(env.getProperty("test.db.url"));
         config.setUsername(env.getProperty("test.db.user"));
         config.setPassword(env.getProperty("test.db.password"));
-        config.addDataSourceProperty( "cachePrepStmts" ,
-                env.getProperty("cachePrepStmts") );
-        config.addDataSourceProperty( "prepStmtCacheSize" ,
-                getIntProperty("prepStmtCacheSize") );
-        config.addDataSourceProperty( "prepStmtCacheSqlLimit" ,
-                getIntProperty("prepStmtCacheSqlLimit") );
+        config.addDataSourceProperty("cachePrepStmts", env.getProperty("cachePrepStmts"));
+        config.addDataSourceProperty("prepStmtCacheSize", getIntProperty("prepStmtCacheSize"));
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", getIntProperty("prepStmtCacheSqlLimit"));
         return new HikariDataSource(config);
     }
 
